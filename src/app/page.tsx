@@ -10,22 +10,12 @@ import GameSlide from '@/components/slides/GameSlide';
 import PracticeSlide from '@/components/slides/PracticeSlide';
 import ProductionSlide from '@/components/slides/ProductionSlide';
 import WrapupSlide from '@/components/slides/WrapupSlide';
-import { useEffect } from 'react';
 
 export default function Home() {
   const { currentStep } = useLessonStore();
 
   // 타이머 훅 사용
   useTimer();
-
-  // Framer Motion이 제대로 작동하도록 클라이언트 사이드 렌더링 보장
-  useEffect(() => {
-    // 클라이언트 사이드에서만 실행되는 코드
-    if (typeof window !== 'undefined') {
-      // Framer Motion 초기화 확인
-      console.log('Framer Motion initialized');
-    }
-  }, []);
 
   // 현재 단계에 따라 적절한 슬라이드 렌더링
   const renderCurrentSlide = () => {

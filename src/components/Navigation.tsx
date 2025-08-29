@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Play, Pause, RotateCcw } from 'lucide-react';
 import { useLessonStore, lessonSteps } from '@/store/lessonStore';
 
@@ -21,12 +20,7 @@ export default function Navigation() {
 
   return (
     <div className="fixed bottom-2 sm:bottom-6 left-1/2 transform -translate-x-1/2 z-50" role="navigation" aria-label="수업 진행 컨트롤">
-      <motion.div
-        className="bg-white rounded-full shadow-lg border border-gray-200 px-3 sm:px-6 py-2 sm:py-3"
-        initial={{ y: 100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-      >
+      <div className="bg-white rounded-full shadow-lg border border-gray-200 px-3 sm:px-6 py-2 sm:py-3 animate-slide-in-up">
         <div className="flex items-center space-x-1 sm:space-x-4" role="group" aria-label="수업 진행 버튼 그룹">
           {/* 이전 단계 버튼 */}
           <button
@@ -76,7 +70,7 @@ export default function Navigation() {
             <RotateCcw size={18} className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
           </button>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

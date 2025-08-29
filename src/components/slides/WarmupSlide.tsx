@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { BookOpen, Users, Lightbulb } from 'lucide-react';
 import { BeVerbIcons, RegularVerbIcons } from '@/components/EducationalIcons';
 
@@ -15,28 +14,18 @@ export default function WarmupSlide() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-center mb-8"
-      >
+      <div className="text-center mb-8 animate-fade-in">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
           Be동사 vs 일반동사
         </h1>
         <p className="text-xl text-gray-600">
           무엇이 다른지 함께 찾아봅시다!
         </p>
-      </motion.div>
+      </div>
 
       <div className="grid md:grid-cols-2 gap-8 mb-12">
         {/* 학습 목표 */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-white rounded-lg shadow-lg p-6"
-        >
+        <div className="bg-white rounded-lg shadow-lg p-6 animate-slide-in-left">
           <div className="flex items-center mb-4">
             <BookOpen className="w-6 h-6 text-indigo-600 mr-3" />
             <h2 className="text-xl font-semibold text-gray-900">학습 목표</h2>
@@ -46,15 +35,10 @@ export default function WarmupSlide() {
             <li>• 문장에서 동사 유형 구분하기</li>
             <li>• 기본 문법 규칙 학습</li>
           </ul>
-        </motion.div>
+        </div>
 
         {/* 수업 흐름 */}
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="bg-white rounded-lg shadow-lg p-6"
-        >
+        <div className="bg-white rounded-lg shadow-lg p-6 animate-slide-in-right">
           <div className="flex items-center mb-4">
             <Users className="w-6 h-6 text-green-600 mr-3" />
             <h2 className="text-xl font-semibold text-gray-900">수업 흐름</h2>
@@ -77,16 +61,11 @@ export default function WarmupSlide() {
               <span>정리/발표 (15분)</span>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* 예시 문장들 */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-        className="bg-white rounded-lg shadow-lg p-8"
-      >
+      <div className="bg-white rounded-lg shadow-lg p-8 animate-fade-in-up">
         <div className="flex items-center justify-center mb-6">
           <Lightbulb className="w-6 h-6 text-yellow-500 mr-3" />
           <h2 className="text-2xl font-semibold text-gray-900">예시 문장들을 읽어보세요</h2>
@@ -96,16 +75,14 @@ export default function WarmupSlide() {
           {sentences.map((sentence, index) => {
             const IconComponent = sentence.icon;
             return (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
-                className={`p-4 rounded-lg border-2 text-center ${
+                className={`p-4 rounded-lg border-2 text-center animate-scale-in ${
                   sentence.type === 'be'
                     ? 'border-blue-200 bg-blue-50'
                     : 'border-green-200 bg-green-50'
                 }`}
+                style={{ animationDelay: `${0.5 + index * 0.1}s` }}
               >
                 <div className="flex justify-center mb-3">
                   <IconComponent />
@@ -120,22 +97,17 @@ export default function WarmupSlide() {
                 }`}>
                   {sentence.type === 'be' ? 'Be동사' : '일반동사'}
                 </span>
-              </motion.div>
+              </div>
             );
           })}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-          className="mt-6 text-center"
-        >
+        <div className="mt-6 text-center animate-fade-in" style={{ animationDelay: '0.8s' }}>
           <p className="text-gray-600 text-lg">
             이 문장들에서 무엇이 다른지 찾아보세요!
           </p>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </div>
   );
 }
