@@ -41,6 +41,10 @@ export const metadata: Metadata = {
     title: "Be동사 vs 일반동사 영어 문법 수업",
     description: "인터랙티브 영어 문법 교육 애플리케이션",
   },
+  // GitHub Pages 배포를 위한 추가 메타데이터
+  other: {
+    'viewport': 'width=device-width, initial-scale=1',
+  },
 };
 
 export default function RootLayout({
