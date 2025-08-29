@@ -1,0 +1,195 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Next.js 프로젝트 기본 설정 및 의존성 설치",
+        "description": "기존 Next.js 프로젝트에 필요한 의존성들을 설치하고 기본 설정을 완료합니다.",
+        "status": "done",
+        "priority": "high",
+        "details": "Tailwind CSS, Framer Motion, Zustand, React Hook Form, Lucide React 등의 의존성을 설치하고 기본 설정을 완료합니다.",
+        "testStrategy": "개발 서버가 정상적으로 실행되고 기본 페이지가 표시되는지 확인",
+        "dependencies": []
+      },
+      {
+        "id": 2,
+        "title": "프로젝트 구조 및 레이아웃 설계",
+        "description": "수업 발표자료에 적합한 폴더 구조와 기본 레이아웃을 설계합니다.",
+        "status": "done",
+        "priority": "high",
+        "details": "components, hooks, types, utils 폴더 생성 및 기본 레이아웃 컴포넌트 구현",
+        "testStrategy": "레이아웃이 모든 화면 크기에서 올바르게 표시되는지 확인",
+        "dependencies": [
+          1
+        ]
+      },
+      {
+        "id": 3,
+        "title": "수업 단계별 슬라이드 구조 구현",
+        "description": "6단계 수업 진행을 위한 슬라이드 구조와 네비게이션을 구현합니다.",
+        "status": "done",
+        "priority": "high",
+        "details": "도입, 전개1, 전개2-A, 전개2-B, 정리/발표, 마무리 단계별 슬라이드 컴포넌트 생성",
+        "testStrategy": "각 슬라이드 간 전환이 부드럽게 작동하는지 확인",
+        "dependencies": [
+          2
+        ]
+      },
+      {
+        "id": 4,
+        "title": "타이머 및 진행률 표시 기능",
+        "description": "각 수업 단계별 타이머와 전체 진행률을 표시하는 기능을 구현합니다.",
+        "status": "done",
+        "priority": "medium",
+        "details": "각 단계별 시간 제한과 전체 60분 타이머, 진행률 바 구현",
+        "testStrategy": "타이머가 정확히 작동하고 진행률이 올바르게 표시되는지 확인",
+        "dependencies": [
+          3
+        ]
+      },
+      {
+        "id": 5,
+        "title": "문장 분류 게임 구현",
+        "description": "Be동사와 일반동사를 구분하는 인터랙티브 게임을 구현합니다.",
+        "status": "done",
+        "priority": "high",
+        "details": "12개 문장 카드를 Be/Verb 바구니로 분류하는 게임, 드래그 앤 드롭 기능",
+        "testStrategy": "카드 분류가 정확히 작동하고 피드백이 제공되는지 확인",
+        "dependencies": [
+          3
+        ]
+      },
+      {
+        "id": 6,
+        "title": "문장 변환 연습 기능",
+        "description": "긍정→부정→의문 변환 연습을 위한 인터랙티브 기능을 구현합니다.",
+        "status": "done",
+        "priority": "high",
+        "details": "문장 입력, 변환 버튼, 실시간 피드백, 채점 시스템 구현",
+        "testStrategy": "변환이 문법적으로 올바르게 작동하는지 확인",
+        "dependencies": [
+          3
+        ]
+      },
+      {
+        "id": 7,
+        "title": "반응형 디자인 구현",
+        "description": "데스크톱, 태블릿, 모바일에서 최적화된 반응형 디자인을 구현합니다.",
+        "status": "done",
+        "priority": "medium",
+        "details": "Tailwind CSS를 활용한 반응형 레이아웃, 터치 인터페이스 최적화",
+        "testStrategy": "모든 화면 크기에서 UI가 올바르게 표시되는지 확인",
+        "dependencies": [
+          2
+        ]
+      },
+      {
+        "id": 8,
+        "title": "애니메이션 및 전환 효과",
+        "description": "Framer Motion을 활용한 부드러운 애니메이션과 전환 효과를 구현합니다.",
+        "status": "done",
+        "priority": "medium",
+        "details": "슬라이드 전환, 카드 애니메이션, 버튼 호버 효과 등 구현",
+        "testStrategy": "애니메이션이 부드럽게 작동하고 성능에 영향을 주지 않는지 확인",
+        "dependencies": [
+          3,
+          7
+        ]
+      },
+      {
+        "id": 9,
+        "title": "교육용 이미지 및 아이콘 통합",
+        "description": "수업 내용에 적합한 이미지와 아이콘을 찾아 통합합니다.",
+        "status": "done",
+        "priority": "medium",
+        "details": "무료 이미지 리소스 검색, 아이콘 라이브러리 활용, 최적화된 이미지 통합",
+        "testStrategy": "이미지가 빠르게 로드되고 시각적으로 매력적인지 확인",
+        "dependencies": [
+          3
+        ]
+      },
+      {
+        "id": 10,
+        "title": "상태 관리 시스템 구현",
+        "description": "Zustand를 활용한 전역 상태 관리 시스템을 구현합니다.",
+        "status": "done",
+        "priority": "medium",
+        "details": "수업 진행 상태, 게임 점수, 사용자 입력 등의 상태 관리",
+        "testStrategy": "상태가 올바르게 업데이트되고 컴포넌트 간 공유되는지 확인",
+        "dependencies": [
+          2
+        ]
+      },
+      {
+        "id": 11,
+        "title": "접근성 및 사용성 개선",
+        "description": "접근성 가이드라인을 준수하고 사용성을 개선합니다.",
+        "status": "in-progress",
+        "priority": "low",
+        "details": "키보드 네비게이션, 스크린 리더 지원, 색상 대비 개선",
+        "testStrategy": "접근성 도구로 테스트하고 사용성이 향상되었는지 확인",
+        "dependencies": [
+          7,
+          8
+        ]
+      },
+      {
+        "id": 12,
+        "title": "성능 최적화",
+        "description": "이미지 최적화, 코드 스플리팅, 번들 크기 최적화를 수행합니다.",
+        "status": "pending",
+        "priority": "low",
+        "details": "Next.js Image 컴포넌트 활용, 동적 임포트, 번들 분석 및 최적화",
+        "testStrategy": "페이지 로딩 속도가 개선되고 성능 점수가 향상되었는지 확인",
+        "dependencies": [
+          9,
+          11
+        ]
+      },
+      {
+        "id": 13,
+        "title": "테스트 및 디버깅",
+        "description": "전체 애플리케이션을 테스트하고 버그를 수정합니다.",
+        "status": "pending",
+        "priority": "high",
+        "details": "기능별 테스트, 크로스 브라우저 테스트, 모바일 테스트 수행",
+        "testStrategy": "모든 기능이 예상대로 작동하고 주요 브라우저에서 호환되는지 확인",
+        "dependencies": [
+          5,
+          6,
+          8,
+          12
+        ]
+      },
+      {
+        "id": 14,
+        "title": "배포 준비 및 Vercel 배포",
+        "description": "프로덕션 배포를 위한 최종 준비와 Vercel 배포를 수행합니다.",
+        "status": "pending",
+        "priority": "medium",
+        "details": "환경 변수 설정, 빌드 최적화, Vercel 배포 설정",
+        "testStrategy": "배포된 사이트가 정상적으로 작동하는지 확인",
+        "dependencies": [
+          13
+        ]
+      },
+      {
+        "id": 15,
+        "title": "문서화 및 사용자 가이드",
+        "description": "프로젝트 문서화와 사용자 가이드를 작성합니다.",
+        "status": "pending",
+        "priority": "low",
+        "details": "README 업데이트, 사용법 가이드, 기술 문서 작성",
+        "testStrategy": "문서가 명확하고 사용자가 쉽게 이해할 수 있는지 확인",
+        "dependencies": [
+          14
+        ]
+      }
+    ],
+    "metadata": {
+      "created": "2025-08-29T10:17:48.441Z",
+      "updated": "2025-08-29T10:33:48.658Z",
+      "description": "Tasks for master context"
+    }
+  }
+}
