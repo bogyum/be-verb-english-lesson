@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { BookOpen, Users, Lightbulb } from 'lucide-react';
-import { BeVerbIcons, RegularVerbIcons, EducationIcons } from '@/components/EducationalIcons';
+import { BeVerbIcons, RegularVerbIcons } from '@/components/EducationalIcons';
 
 export default function WarmupSlide() {
   const sentences = [

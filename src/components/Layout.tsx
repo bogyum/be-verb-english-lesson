@@ -9,7 +9,7 @@ interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps) {
-  const { currentStep, progress, timeRemaining, isPlaying } = useLessonStore();
+  const { currentStep, progress, timeRemaining } = useLessonStore();
   
   const currentStepInfo = lessonSteps.find(step => step.id === currentStep);
   

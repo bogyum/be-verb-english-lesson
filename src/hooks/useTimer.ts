@@ -1,14 +1,14 @@
 import { useEffect, useRef } from 'react';
-import { useLessonStore } from '@/store/lessonStore';
+import { useLessonStore, lessonSteps } from '@/store/lessonStore';
 
-export function useTimer() {
+export const useTimer = () => {
   const {
     timeRemaining,
     setTimeRemaining,
     isPlaying,
+    setIsPlaying,
     currentStep,
-    nextStep,
-    lessonSteps
+    nextStep
   } = useLessonStore();
 
   const intervalRef = useRef<NodeJS.Timeout | null>(null);

@@ -41,7 +41,7 @@ export default function GameSlide() {
     }
   }, [beBasket, verbBasket]);
 
-  const handleDragStart = (e: React.DragEvent | any, card: SentenceCard) => {
+  const handleDragStart = (e: React.DragEvent<HTMLDivElement>, card: SentenceCard) => {
     setDraggedCard(card);
     if (e.dataTransfer) {
       e.dataTransfer.effectAllowed = 'move';
@@ -49,7 +49,7 @@ export default function GameSlide() {
     }
   };
 
-  const handleDragOver = (e: React.DragEvent | any) => {
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     e.stopPropagation();
     if (e.dataTransfer) {
@@ -57,7 +57,7 @@ export default function GameSlide() {
     }
   };
 
-  const handleDrop = (e: React.DragEvent | any, targetType: 'be' | 'verb') => {
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>, targetType: 'be' | 'verb') => {
     e.preventDefault();
     
     // 시각적 피드백 제거
@@ -175,17 +175,14 @@ export default function GameSlide() {
           <div className="bg-gray-50 rounded-lg p-4 min-h-[400px]">
             <AnimatePresence>
               {cards.map((card) => (
-                                <motion.div
+                <div
           key={card.id}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.8 }}
           draggable
-          onDragStart={(e: any) => handleDragStart(e, card)}
+          onDragStart={(e: React.DragEvent<HTMLDivElement>) => handleDragStart(e, card)}
           className="bg-white rounded-lg shadow-md p-4 mb-3 cursor-move hover:shadow-lg transition-shadow"
         >
           <p className="text-gray-900 font-medium">{card.text}</p>
-        </motion.div>
+        </div>
               ))}
             </AnimatePresence>
             {cards.length === 0 && (
@@ -204,13 +201,13 @@ export default function GameSlide() {
           </h3>
                             <div
                     className="bg-blue-50 border-2 border-blue-200 rounded-lg p-4 min-h-[400px] transition-colors"
-                    onDragOver={(e: any) => handleDragOver(e)}
-                    onDrop={(e: any) => handleDrop(e, 'be')}
-                    onDragEnter={(e: any) => {
+                    onDragOver={(e: React.DragEvent<HTMLDivElement>) => handleDragOver(e)}
+                    onDrop={(e: React.DragEvent<HTMLDivElement>) => handleDrop(e, 'be')}
+                    onDragEnter={(e: React.DragEvent<HTMLDivElement>) => {
                       e.preventDefault();
                       e.currentTarget.classList.add('bg-blue-100', 'border-blue-400');
                     }}
-                    onDragLeave={(e: any) => {
+                    onDragLeave={(e: React.DragEvent<HTMLDivElement>) => {
                       e.preventDefault();
                       e.currentTarget.classList.remove('bg-blue-100', 'border-blue-400');
                     }}
@@ -246,13 +243,13 @@ export default function GameSlide() {
           </h3>
                             <div
                     className="bg-green-50 border-2 border-green-200 rounded-lg p-4 min-h-[400px] transition-colors"
-                    onDragOver={(e: any) => handleDragOver(e)}
-                    onDrop={(e: any) => handleDrop(e, 'verb')}
-                    onDragEnter={(e: any) => {
+                    onDragOver={(e: React.DragEvent<HTMLDivElement>) => handleDragOver(e)}
+                    onDrop={(e: React.DragEvent<HTMLDivElement>) => handleDrop(e, 'verb')}
+                    onDragEnter={(e: React.DragEvent<HTMLDivElement>) => {
                       e.preventDefault();
                       e.currentTarget.classList.add('bg-green-100', 'border-green-400');
                     }}
-                    onDragLeave={(e: any) => {
+                    onDragLeave={(e: React.DragEvent<HTMLDivElement>) => {
                       e.preventDefault();
                       e.currentTarget.classList.remove('bg-green-100', 'border-green-400');
                     }}

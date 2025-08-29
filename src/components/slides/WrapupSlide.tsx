@@ -166,56 +166,62 @@ export default function WrapupSlide() {
           {!showResults ? (
             <div className="space-y-6">
               {/* 객관식 문제 1 */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">1. {questions[0].question}</h3>
-                <div className="space-y-2">
-                  {questions[0].options.map((option, index) => (
-                    <label key={index} className="flex items-center space-x-3 cursor-pointer">
-                      <input
-                        type="radio"
-                        name="q1"
-                        value={index.toString()}
-                        checked={answers.q1 === index.toString()}
-                        onChange={(e) => handleAnswerChange('q1', e.target.value)}
-                        className="w-4 h-4 text-indigo-600"
-                      />
-                      <span className="text-gray-700">{option}</span>
-                    </label>
-                  ))}
+              {questions[0] && (
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">1. {questions[0].question}</h3>
+                  <div className="space-y-2">
+                    {questions[0].options?.map((option, index) => (
+                      <label key={index} className="flex items-center space-x-3 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="q1"
+                          value={index.toString()}
+                          checked={answers.q1 === index.toString()}
+                          onChange={(e) => handleAnswerChange('q1', e.target.value)}
+                          className="w-4 h-4 text-indigo-600"
+                        />
+                        <span className="text-gray-700">{option}</span>
+                      </label>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* 객관식 문제 2 */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">2. {questions[1].question}</h3>
-                <div className="space-y-2">
-                  {questions[1].options.map((option, index) => (
-                    <label key={index} className="flex items-center space-x-3 cursor-pointer">
-                      <input
-                        type="radio"
-                        name="q2"
-                        value={index.toString()}
-                        checked={answers.q2 === index.toString()}
-                        onChange={(e) => handleAnswerChange('q2', e.target.value)}
-                        className="w-4 h-4 text-indigo-600"
-                      />
-                      <span className="text-gray-700">{option}</span>
-                    </label>
-                  ))}
+              {questions[1] && (
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">2. {questions[1].question}</h3>
+                  <div className="space-y-2">
+                    {questions[1].options?.map((option, index) => (
+                      <label key={index} className="flex items-center space-x-3 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="q2"
+                          value={index.toString()}
+                          checked={answers.q2 === index.toString()}
+                          onChange={(e) => handleAnswerChange('q2', e.target.value)}
+                          className="w-4 h-4 text-indigo-600"
+                        />
+                        <span className="text-gray-700">{option}</span>
+                      </label>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* 주관식 문제 3 */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">3. {questions[2].question}</h3>
-                <input
-                  type="text"
-                  value={answers.q3}
-                  onChange={(e) => handleAnswerChange('q3', e.target.value)}
-                  placeholder="답을 입력하세요..."
-                  className="w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
-                />
-              </div>
+              {questions[2] && (
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">3. {questions[2].question}</h3>
+                  <input
+                    type="text"
+                    value={answers.q3}
+                    onChange={(e) => handleAnswerChange('q3', e.target.value)}
+                    placeholder="답을 입력하세요..."
+                    className="w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
+                  />
+                </div>
+              )}
 
               <button
                 onClick={checkAnswers}
@@ -246,9 +252,10 @@ export default function WrapupSlide() {
               {/* 문제별 결과 */}
               <div className="space-y-4">
                 {questions.map((q, index) => {
+                  const answer = answers[q.id as keyof typeof answers];
                   const isCorrect = index < 2 
-                    ? answers[q.id] === q.correct.toString()
-                    : answers[q.id].trim().toLowerCase() === q.answer.toLowerCase();
+                    ? answer === q.correct?.toString()
+                    : answer?.trim().toLowerCase() === q.answer?.toLowerCase();
                   
                   return (
                     <div key={q.id} className={`p-4 rounded-lg ${
